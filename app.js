@@ -16,19 +16,18 @@ button.addEventListener("click", function () {
      */
     scramble = createWord();
     scrambled = randomArray(scramble.split("")).join("");
-    message.innerHTML = "First: " + scramble + " | Second:" + scrambled +" <br/>";
+    message.innerHTML = scrambled +" <br/>";
   } else {
     score++;
     let tempGuess = guess.value;
     if (tempGuess == scramble) {
-      console.log("Winner");
       inplay = false;
-      message.innerHTML = "First: " + scramble + " | Second:" + scrambled +" <br/>"+" Correct " + score + " guesses ";
+      message.innerHTML = scramble +" <br/> Correct " + score + " guesses ";
       button.innerHTML = "Start";
       guess.classList.toggle("hidden");
     } else {
-      console.log("Loser");
-      message.innerHTML += "Wrong";
+      message.innerHTML = scrambled + " <br/> Wrong" + score + "guess";
+      guess.value="";
     }
   }
 });
@@ -36,19 +35,16 @@ button.addEventListener("click", function () {
 function createWord() {
   let randonNum = Math.floor(Math.random() * ArrayList.length);
   let tempWord = ArrayList[randonNum];
-  console.log(tempWord);
   return tempWord;
 }
 
 function randomArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     let temp = arr[i];
-    console.log(temp);
     // تا حالا تونستیم اعضای آرایه رو بصورت برعکس نشون بدیم
 
     // حالا برای هر عضو این آرایه یک عدد رندوم بدست میاریم و اون عضو رو با عضو آرایه عوض میکنیم
     let j = Math.floor(Math.random() * (i + 1));
-    console.log(j);
     arr[i] = arr[j];
     arr[j] = temp;
   }

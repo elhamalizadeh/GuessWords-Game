@@ -19,6 +19,7 @@ button.addEventListener("click", function () {
     scrumble = createWord();
     scrumbled = randomArray(scrumble.split("")).join("");
     message.innerHTML = scrumbled;
+    img.src = "";
     
   } else {
     score++;

@@ -6,6 +6,8 @@ var inPlay = false;
 let score = "0";
 let scramble = "";
 const ArrayList = ["mahdi", "faranak", "maede", "pejhman", "koohyar"];
+const img = document.getElementById("congrats");
+
 
 button.addEventListener("click", function () {
   if (!inPlay) {
@@ -24,11 +26,12 @@ button.addEventListener("click", function () {
     message.style.color = "red";
     let yourGuess = guess.value;
     if (yourGuess == scrumble) {
-      message.innerHTML = "<h2>"+scrumble + "</h2>score is: " + score +"<br/><b>hoooooray CORECT</b>";
+      message.innerHTML = "<h2>"+scrumble + "</h2>score is: " + score +"<br/><h1>hoooooray CORECT</h1>";
       message.style.color = "green";
       inPlay = false;
       button.innerHTML = "Restart Game";
       guess.classList.toggle("hidden");
+      img.src = "./assets/images/Congratulations.gif";
     } else {
       message.innerHTML ="<h2>"+ scrumbled + "</h2>score is: " + score +"<br/><b>Oops Wrong</b>";
       guess.value = "";

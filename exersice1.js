@@ -10,10 +10,13 @@ const nameArray = ["ali", "fereshte", "maziar", "maral", "niloofar"];
 button.addEventListener("click", function () {
   if (!inPlay) {
     inPlay = true;
+    score="0";
     button.innerHTML = "Guess Now";
     guess.classList.toggle("hidden");// turn to visible
+    guess.value="";
     scramble = createWord(); //---   اسم انتخابی کامپیوتر
     scrambled = randomArray(scramble.split("")).join(""); 
+    message.innerHTML = scrambled +" <br/>";
     //------  درهم ریخته شده ی اسم انتخابی
 
     // تا اینجا آماده سازی برای شروع بازی
@@ -23,12 +26,12 @@ button.addEventListener("click", function () {
     console.log( "your guess is:" + yourGuess);
     if (yourGuess == scramble){
         inPlay = false;
-        message.innerHTML = scramble + "Correct" + score + "guess";
+        message.innerHTML = scramble + "<br/> Correct" + score + "guess";
         guess.classList.toggle("hidden"); // turn to invisible
         button.innerHTML = "restart game";
     }
     else{
-        message.innerHTML = "wrong" + score + "guess";
+        message.innerHTML = scrambled + "<br/> wrong" + score + "guess";
         guess.value="";
     }
   }

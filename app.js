@@ -10,10 +10,12 @@ let score = "0";
 button.addEventListener("click", function () {
   if (!inplay) {
     inplay = true;
+    score="0";
     button.innerHTML = "guess";
     guess.classList.toggle("hidden");
     /* The toggle() method toggles between hide() and show() for the selected elements. This method checks the selected elements for visibility. show() is run if an element is hidden. hide() is run if an element is visible - This creates a toggle effect.
      */
+    guess.value="";
     scramble = createWord();
     scrambled = randomArray(scramble.split("")).join("");
     message.innerHTML = scrambled +" <br/>";
